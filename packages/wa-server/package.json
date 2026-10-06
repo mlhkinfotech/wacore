@@ -1,0 +1,48 @@
+{
+  "name": "@mlhk/wa-server",
+  "version": "1.0.0",
+  "description": "Ready-to-deploy REST API and WebSocket Server for MLHK WhatsApp AI Ecosystem",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "wa-server": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@mlhk/ai-agent": "workspace:*",
+    "@mlhk/types": "workspace:*",
+    "@mlhk/wa-core": "workspace:*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pino": "^9.6.0",
+    "socket.io": "^4.8.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/uuid": "^9.0.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}

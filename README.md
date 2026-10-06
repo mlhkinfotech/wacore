@@ -11,8 +11,9 @@ Enterprise-grade, modular, and multi-tenant WhatsApp AI Agent & Automation Platf
 | [`@mlhk/types`](./packages/types) | `v1.0.0` | Shared TypeScript interfaces & contracts |
 | [`@mlhk/wa-core`](./packages/wa-core) | `v1.0.0` | Core WhatsApp Engine with Baileys & Multi-Session support |
 | [`@mlhk/ai-agent`](./packages/ai-agent) | `v1.0.0` | AI Agent Brain with Gemini, OpenRouter, Memory & Tool-calling |
-| `@mlhk/plugin-pos` (Upcoming) | `v1.0.0` | Point of Sale & E-commerce inventory integration |
-| `@mlhk/wa-server` (Upcoming) | `v1.0.0` | Turnkey REST & WebSocket Server |
+| [`@mlhk/plugin-catalog`](./plugins/plugin-catalog) | `v1.0.0` | Universal Business & Product Customization Plugin |
+| [`@mlhk/wa-server`](./packages/wa-server) | `v1.0.0` | Turnkey REST API, WebSocket & Notification Server |
+| `@mlhk/wa-admin` (Upcoming) | `v1.0.0` | React Admin Dashboard UI |
 
 ---
 
