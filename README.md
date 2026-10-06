@@ -13,7 +13,7 @@ Enterprise-grade, modular, and multi-tenant WhatsApp AI Agent & Automation Platf
 | [`@mlhk/ai-agent`](./packages/ai-agent) | `v1.0.0` | AI Agent Brain with Gemini, OpenRouter, Memory & Tool-calling |
 | [`@mlhk/plugin-catalog`](./plugins/plugin-catalog) | `v1.0.0` | Universal Business & Product Customization Plugin |
 | [`@mlhk/wa-server`](./packages/wa-server) | `v1.0.0` | Turnkey REST API, WebSocket & Notification Server |
-| `@mlhk/wa-admin` (Upcoming) | `v1.0.0` | React Admin Dashboard UI |
+| [`@mlhk/wa-admin`](./packages/wa-admin) | `v1.0.0` | React Admin Dashboard UI (Vite + Dark Mode) |
 
 ---
 
@@ -82,6 +82,28 @@ bot.on('message', async (ctx) => {
 // 4. Start Engine
 await bot.start();
 ```
+
+---
+
+## 🖥️ Web Admin Dashboard UI (`@mlhk/wa-admin`)
+
+Aap bina code likhe direct browser se QR code scan kar sakte hain aur pura bot visually manage kar sakte hain:
+
+```bash
+# 1. Start Server (Terminal 1)
+pnpm --filter @mlhk/wa-server start
+
+# 2. Start Admin Dashboard UI (Terminal 2)
+pnpm --filter @mlhk/wa-admin dev
+```
+👉 Open **`http://localhost:3000`** in your browser!
+
+Features:
+- 📱 Live WhatsApp QR Code Viewer
+- 🤖 AI Brain Config (System Prompt, Temperature, Model selection)
+- 💬 Real-time Messages Feed & Manual Reply Sender
+- 📢 Broadcast Campaign Sender with anti-ban delay
+- 🧪 AI Playground Sandbox for testing agent responses
 
 ---
 
