@@ -1,67 +1,97 @@
-name: Build & Publish to npm
+name: Release & Publish to npm
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      publish_to_npm:
+        description: 'Publish packages to npm registry'
+        required: true
+        type: boolean
+        default: true
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  build:
-    name: Build & Verify Monorepo
+  verify:
+    name: Verify & Test Monorepo
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: ⚙️ Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: 🟢 Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build all packages
+      - name: 🧪 Run Unit Tests
+        run: pnpm test
+
+      - name: 🏗️ Build All Packages
         run: pnpm run build
 
   publish:
-    name: Publish to npm
-    needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
+    name: Publish Packages to npm
+    needs: verify
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      id-token: write
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: ⚙️ Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: 🟢 Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      - name: Install dependencies & Build
+      - name: 📦 Install dependencies & Build
         run: |
           pnpm install --frozen-lockfile
           pnpm run build
 
-      - name: Publish Packages to npm
+      - name: 🚀 Publish Packages to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
           pnpm --filter @mlhkinfotech/types publish --access public --no-git-checks
           pnpm --filter @mlhkinfotech/wa-core publish --access public --no-git-checks
           pnpm --filter @mlhkinfotech/ai-agent publish --access public --no-git-checks
           pnpm --filter @mlhkinfotech/plugin-catalog publish --access public --no-git-checks
           pnpm --filter @mlhkinfotech/wa-server publish --access public --no-git-checks
+          pnpm --filter @mlhkinfotech/wa-admin publish --access public --no-git-checks
           pnpm --filter @mlhkinfotech/wa-cli publish --access public --no-git-checks
+
+      - name: 🏷️ Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          name: Release ${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

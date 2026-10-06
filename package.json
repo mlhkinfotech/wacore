@@ -7,7 +7,7 @@
     "build": "pnpm --filter \"./packages/*\" --filter \"./plugins/*\" run build",
     "dev": "pnpm --filter \"./packages/*\" run dev",
     "clean": "pnpm -r run clean",
-    "test": "pnpm -r run test"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@types/node": "^22.13.0",

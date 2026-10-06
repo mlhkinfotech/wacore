@@ -1,130 +1,174 @@
 # 🚀 MLHK AI WhatsApp Ecosystem
 
-Enterprise-grade, modular, and multi-tenant WhatsApp AI Agent & Automation Platform built with TypeScript and Node.js.
+[![CI Workflow](https://github.com/mlhkinfotech/wacore/actions/workflows/ci.yml/badge.svg)](https://github.com/mlhkinfotech/wacore/actions/workflows/ci.yml)
+[![npm publish](https://github.com/mlhkinfotech/wacore/actions/workflows/publish.yml/badge.svg)](https://github.com/mlhkinfotech/wacore/actions/workflows/publish.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen.svg)](https://nodejs.org/)
+
+Enterprise-grade, modular, and multi-tenant WhatsApp AI Agent & Automation Platform built with TypeScript and Node.js. Designed for high reliability, custom business catalogs, multi-provider LLMs (Gemini & OpenRouter), visual web dashboards, and turnkey CLI scaffolding.
 
 ---
 
-## 📦 Packages in this Monorepo
+## 📦 Packages in this Ecosystem
 
-| Package | Status | Description |
-|---|---|---|
-| [`@mlhkinfotech/types`](./packages/types) | `v1.0.0` | Shared TypeScript interfaces & contracts |
-| [`@mlhkinfotech/wa-core`](./packages/wa-core) | `v1.0.0` | Core WhatsApp Engine with Baileys & Multi-Session support |
-| [`@mlhkinfotech/ai-agent`](./packages/ai-agent) | `v1.0.0` | AI Agent Brain with Gemini, OpenRouter, Memory & Tool-calling |
-| [`@mlhkinfotech/plugin-catalog`](./plugins/plugin-catalog) | `v1.0.0` | Universal Business & Product Customization Plugin |
-| [`@mlhkinfotech/wa-server`](./packages/wa-server) | `v1.0.0` | Turnkey REST API, WebSocket & Notification Server |
-| [`@mlhkinfotech/wa-admin`](./packages/wa-admin) | `v1.0.0` | React Admin Dashboard UI (Vite + Dark Mode) |
+All packages are published under the **`@mlhkinfotech`** organization scope on [npm](https://www.npmjs.com/org/mlhkinfotech):
+
+| Package | Version | npm Link | Description |
+|---|:---:|:---:|---|
+| [`@mlhkinfotech/types`](./packages/types) | `1.0.1` | [![npm](https://img.shields.io/npm/v/@mlhkinfotech/types.svg)](https://www.npmjs.com/package/@mlhkinfotech/types) | Shared TypeScript definitions & contracts |
+| [`@mlhkinfotech/wa-core`](./packages/wa-core) | `1.0.1` | [![npm](https://img.shields.io/npm/v/@mlhkinfotech/wa-core.svg)](https://www.npmjs.com/package/@mlhkinfotech/wa-core) | Baileys WhatsApp Engine & Multi-Session manager |
+| [`@mlhkinfotech/ai-agent`](./packages/ai-agent) | `1.0.1` | [![npm](https://img.shields.io/npm/v/@mlhkinfotech/ai-agent.svg)](https://www.npmjs.com/package/@mlhkinfotech/ai-agent) | Multi-provider LLM brain, memory & tool registry |
+| [`@mlhkinfotech/plugin-catalog`](./plugins/plugin-catalog) | `1.0.1` | [![npm](https://img.shields.io/npm/v/@mlhkinfotech/plugin-catalog.svg)](https://www.npmjs.com/package/@mlhkinfotech/plugin-catalog) | Universal Business & Product Catalog Plugin |
+| [`@mlhkinfotech/wa-server`](./packages/wa-server) | `1.0.2` | [![npm](https://img.shields.io/npm/v/@mlhkinfotech/wa-server.svg)](https://www.npmjs.com/package/@mlhkinfotech/wa-server) | Turnkey REST API & WebSocket real-time server |
+| [`@mlhkinfotech/wa-admin`](./packages/wa-admin) | `1.0.1` | [![npm](https://img.shields.io/npm/v/@mlhkinfotech/wa-admin.svg)](https://www.npmjs.com/package/@mlhkinfotech/wa-admin) | React 19 + Vite Live Admin Dashboard & Sandbox |
+| [`@mlhkinfotech/wa-cli`](./packages/wa-cli) | `1.0.2` | [![npm](https://img.shields.io/npm/v/@mlhkinfotech/wa-cli.svg)](https://www.npmjs.com/package/@mlhkinfotech/wa-cli) | Scaffolding & Bot Runner CLI (`mlhk-wa` / `wa-cli`) |
 
 ---
 
-## ⚡ Quick Start
+## 🏗️ Architecture Overview
 
-### 1. Requirements
-- Node.js `>= 20`
-- pnpm `>= 9`
-
-### 2. Installation & Build
-```bash
-# Clone and install dependencies
-pnpm install
-
-# Build all packages
-pnpm run build
+```mermaid
+flowchart TD
+    User([Customer on WhatsApp]) <--> WA[WhatsApp Network]
+    WA <--> Core["@mlhkinfotech/wa-core\n(Baileys Engine & Sessions)"]
+    
+    Core <--> Server["@mlhkinfotech/wa-server\n(REST API & Socket.IO)"]
+    Server <--> Admin["@mlhkinfotech/wa-admin\n(React 19 Dashboard UI)"]
+    
+    Core <--> Agent["@mlhkinfotech/ai-agent\n(Memory & Tool Calling)"]
+    Agent <--> LLM["LLM Providers\n(Gemini 2.0 / OpenRouter / DeepSeek)"]
+    
+    Agent <--> Plugin["@mlhkinfotech/plugin-catalog\n(Products & Order State Machine)"]
+    Plugin <--> DB[(Any Business Database / Inventory)]
 ```
 
-### 3. Run Demo Bot
+---
+
+## ⚡ Instant Setup with CLI
+
+The fastest way to build a client bot is via the official CLI:
+
 ```bash
-cd examples/basic-bot
+# 1. Create a new client bot project
+npx @mlhkinfotech/wa-cli create my-store-bot
 
-# Set up your environment variables
-cp .env.example .env
-# Edit .env with your AI_API_KEY (e.g., Gemini or OpenRouter)
+# 2. Navigate to project
+cd my-store-bot
 
-# Start the bot
-pnpm start
+# 3. Add your Gemini or OpenRouter key to .env
+# AI_API_KEY=your_key_here
+
+# 4. Start the bot
+npm run dev
 ```
-Terminal par QR code print hoga, WhatsApp se scan karein aur aapka AI Bot active ho jayega!
 
 ---
 
-## 🛠️ Usage Example
+## 🛠️ Programmatic Usage
 
 ```typescript
 import { WhatsAppEngine } from '@mlhkinfotech/wa-core';
 import { AIAgent } from '@mlhkinfotech/ai-agent';
+import { CatalogPlugin, MemoryCatalogAdapter } from '@mlhkinfotech/plugin-catalog';
 
-// 1. Configure the AI Agent
-const agent = new AIAgent({
-  provider: 'gemini',
-  apiKey: process.env.AI_API_KEY,
-  systemPrompt: 'You are a helpful customer support assistant.'
-});
-
-// 2. Initialize the WhatsApp Engine
+// 1. WhatsApp Connection
 const bot = new WhatsAppEngine({
   sessionId: 'client-1',
   sessionPath: './sessions/client-1'
 });
 
-// 3. Handle messages
-bot.on('message', async (ctx) => {
-  const response = await agent.process({
-    contactId: ctx.from,
-    contactName: ctx.fromName,
-    message: ctx.body
+// 2. Business Catalog
+const catalog = new MemoryCatalogAdapter({
+  id: 'store_1',
+  name: 'MLHK Smart Store',
+  currency: 'INR',
+  products: [
+    { id: '1', name: 'Web Development Plan', price: 9999, inStock: true },
+    { id: '2', name: 'WhatsApp AI Automation', price: 14999, inStock: true }
+  ]
+});
+
+// 3. AI Brain
+const agent = new AIAgent({
+  provider: 'gemini',
+  apiKey: process.env.AI_API_KEY!,
+  systemPrompt: 'You are an intelligent business consultant for MLHK Smart Store.'
+});
+
+// Attach catalog search tool to AI
+const plugin = new CatalogPlugin(catalog);
+agent.registerTool(plugin.getSearchTool());
+
+// 4. Message Pipeline
+bot.on('message', async (msg) => {
+  if (msg.fromMe || !msg.text) return;
+
+  const result = await agent.process({
+    contactId: msg.from,
+    contactName: msg.fromName,
+    message: msg.text
   });
 
-  if (response.reply) {
-    await ctx.reply(response.reply);
+  if (result.reply) {
+    await bot.sendMessage(msg.from, result.reply);
   }
 });
 
-// 4. Start Engine
 await bot.start();
 ```
 
 ---
 
-## 🖥️ Web Admin Dashboard UI (`@mlhkinfotech/wa-admin`)
+## 🖥️ Live Admin Dashboard UI (`@mlhkinfotech/wa-admin`)
 
-Aap bina code likhe direct browser se QR code scan kar sakte hain aur pura bot visually manage kar sakte hain:
+Manage WhatsApp connections and AI configurations visually without code:
 
 ```bash
-# 1. Start Server (Terminal 1)
+# Start backend server
 pnpm --filter @mlhkinfotech/wa-server start
 
-# 2. Start Admin Dashboard UI (Terminal 2)
+# Start frontend dashboard (http://localhost:5173)
 pnpm --filter @mlhkinfotech/wa-admin dev
 ```
-👉 Open **`http://localhost:3000`** in your browser!
 
-Features:
-- 📱 Live WhatsApp QR Code Viewer
-- 🤖 AI Brain Config (System Prompt, Temperature, Model selection)
-- 💬 Real-time Messages Feed & Manual Reply Sender
-- 📢 Broadcast Campaign Sender with anti-ban delay
-- 🧪 AI Playground Sandbox for testing agent responses
+- 📱 **Live QR Code Scanner**: Scan WhatsApp web QR codes visually.
+- 🤖 **AI Playground**: Test agent responses before publishing live.
+- 💬 **Live Feed**: Monitor active WhatsApp customer conversations.
+- 📢 **Broadcast Campaign**: Send notifications with anti-ban delay throttling.
 
 ---
 
-## 🚢 Publishing to npm
+## 🔄 CI/CD & GitHub Actions
 
-To publish the packages to the npm registry:
+Automated CI/CD pipelines are configured in `.github/workflows`:
 
+1. **Continuous Integration (`ci.yml`)**:
+   - Triggers on push and pull requests to `main`.
+   - Runs linting, typechecking (`tsc`), full monorepo build, and unit tests across Node.js 20 and 22.
+
+2. **Continuous Publishing (`publish.yml`)**:
+   - Triggers automatically whenever a git release tag (`v*`) is pushed, or via manual dispatch.
+   - Builds all packages and publishes with public access to the npm registry using `NPM_TOKEN`.
+   - Creates an automated GitHub Release with release notes.
+
+To publish a new version:
 ```bash
-# 1. Login to your npm account
-npm login
-
-# 2. Build the latest changes
-pnpm run build
-
-# 3. Publish packages with public access
-pnpm --filter @mlhkinfotech/types publish --access public
-pnpm --filter @mlhkinfotech/wa-core publish --access public
-pnpm --filter @mlhkinfotech/ai-agent publish --access public
+git tag v1.0.3
+git push origin v1.0.3
 ```
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository: [https://github.com/mlhkinfotech/wacore](https://github.com/mlhkinfotech/wacore)
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
-MIT © MLHK
+
+MIT © [MLHK Infotech](https://github.com/mlhkinfotech)
