@@ -1,6 +1,6 @@
-import { WhatsAppEngine } from '@mlhk/wa-core';
-import { AIAgent } from '@mlhk/ai-agent';
-import { CatalogPlugin } from '@mlhk/plugin-catalog';
+import { WhatsAppEngine } from '@mlhkinfotech/wa-core';
+import { AIAgent } from '@mlhkinfotech/ai-agent';
+import { CatalogPlugin } from '@mlhkinfotech/plugin-catalog';
 
 // 1. Apne Business ka Custom Catalog Define Karein (Laptops, Clothes, Food, Services etc.)
 const catalogPlugin = new CatalogPlugin({

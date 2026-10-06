@@ -8,8 +8,8 @@
     "dev": "node --watch --env-file=.env src/index.js"
   },
   "dependencies": {
-    "@mlhk/ai-agent": "workspace:*",
-    "@mlhk/types": "workspace:*",
-    "@mlhk/wa-core": "workspace:*"
+    "@mlhkinfotech/ai-agent": "workspace:*",
+    "@mlhkinfotech/types": "workspace:*",
+    "@mlhkinfotech/wa-core": "workspace:*"
   }
 }

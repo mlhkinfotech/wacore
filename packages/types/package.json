@@ -1,5 +1,5 @@
 {
-  "name": "@mlhk/types",
+  "name": "@mlhkinfotech/types",
   "version": "1.0.0",
   "description": "Shared TypeScript definitions and contracts for MLHK AI WhatsApp Ecosystem",
   "type": "module",

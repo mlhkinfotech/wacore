@@ -181,7 +181,7 @@ importers:
 
   packages/ai-agent:
     dependencies:
-      '@mlhk/types':
+      '@mlhkinfotech/types':
         specifier: workspace:*
         version: link:../types
 
@@ -220,10 +220,10 @@ importers:
 
   packages/wa-cli:
     dependencies:
-      '@mlhk/types':
+      '@mlhkinfotech/types':
         specifier: workspace:*
         version: link:../types
-      '@mlhk/wa-server':
+      '@mlhkinfotech/wa-server':
         specifier: workspace:*
         version: link:../wa-server
       commander:
@@ -235,7 +235,7 @@ importers:
 
   packages/wa-core:
     dependencies:
-      '@mlhk/types':
+      '@mlhkinfotech/types':
         specifier: workspace:*
         version: link:../types
       '@whiskeysockets/baileys':
@@ -260,13 +260,13 @@ importers:
 
   packages/wa-server:
     dependencies:
-      '@mlhk/ai-agent':
+      '@mlhkinfotech/ai-agent':
         specifier: workspace:*
         version: link:../ai-agent
-      '@mlhk/types':
+      '@mlhkinfotech/types':
         specifier: workspace:*
         version: link:../types
-      '@mlhk/wa-core':
+      '@mlhkinfotech/wa-core':
         specifier: workspace:*
         version: link:../wa-core
       cors:
@@ -300,7 +300,7 @@ importers:
 
   plugins/plugin-catalog:
     dependencies:
-      '@mlhk/types':
+      '@mlhkinfotech/types':
         specifier: workspace:*
         version: link:../../packages/types
 

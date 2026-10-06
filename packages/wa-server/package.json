@@ -1,5 +1,5 @@
 {
-  "name": "@mlhk/wa-server",
+  "name": "@mlhkinfotech/wa-server",
   "version": "1.0.0",
   "description": "Ready-to-deploy REST API and WebSocket Server for MLHK WhatsApp AI Ecosystem",
   "type": "module",
@@ -26,9 +26,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mlhk/ai-agent": "workspace:*",
-    "@mlhk/types": "workspace:*",
-    "@mlhk/wa-core": "workspace:*",
+    "@mlhkinfotech/ai-agent": "workspace:*",
+    "@mlhkinfotech/types": "workspace:*",
+    "@mlhkinfotech/wa-core": "workspace:*",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",

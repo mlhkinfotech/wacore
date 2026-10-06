@@ -2,7 +2,7 @@ import { Command } from 'commander';
 import pc from 'picocolors';
 import fs from 'fs';
 import path from 'path';
-import { createWAServer } from '@mlhk/wa-server';
+import { createWAServer } from '@mlhkinfotech/wa-server';
 
 const program = new Command();
 
@@ -63,9 +63,9 @@ program
         dev: 'node --watch --env-file=.env index.js'
       },
       dependencies: {
-        '@mlhk/wa-core': '^1.0.0',
-        '@mlhk/ai-agent': '^1.0.0',
-        '@mlhk/plugin-catalog': '^1.0.0'
+        '@mlhkinfotech/wa-core': '^1.0.0',
+        '@mlhkinfotech/ai-agent': '^1.0.0',
+        '@mlhkinfotech/plugin-catalog': '^1.0.0'
       }
     };
     fs.writeFileSync(path.join(targetDir, 'package.json'), JSON.stringify(pkg, null, 2));
@@ -80,9 +80,9 @@ AI_MODEL=gemini-2.0-flash
     fs.writeFileSync(path.join(targetDir, '.env'), envContent);
 
     // 3. index.js
-    const indexJs = `import { WhatsAppEngine } from '@mlhk/wa-core';
-import { AIAgent } from '@mlhk/ai-agent';
-import { CatalogPlugin } from '@mlhk/plugin-catalog';
+    const indexJs = `import { WhatsAppEngine } from '@mlhkinfotech/wa-core';
+import { AIAgent } from '@mlhkinfotech/ai-agent';
+import { CatalogPlugin } from '@mlhkinfotech/plugin-catalog';
 
 // 1. Configure Business & Products
 const catalog = new CatalogPlugin({

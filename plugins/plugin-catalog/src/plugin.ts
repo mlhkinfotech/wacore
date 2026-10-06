@@ -4,7 +4,7 @@ import type {
   MessageContext,
   AgentContext,
   AgentResponse
-} from '@mlhk/types';
+} from '@mlhkinfotech/types';
 import type { CatalogAdapter, BusinessProfile, CapturedOrder, ProductItem } from './types.js';
 import { MemoryCatalogAdapter } from './adapters/memory.js';
 import { ProductFormatter } from './formatter.js';
@@ -18,7 +18,7 @@ export interface CatalogPluginOptions {
 }
 
 export class CatalogPlugin implements Plugin {
-  public readonly name = '@mlhk/plugin-catalog';
+  public readonly name = '@mlhkinfotech/plugin-catalog';
   public readonly version = '1.0.0';
   public readonly description = 'Universal Business & Product Catalog Plugin';
 

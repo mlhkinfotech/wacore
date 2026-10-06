@@ -1,5 +1,5 @@
-import { WhatsAppEngine } from '@mlhk/wa-core';
-import { AIAgent } from '@mlhk/ai-agent';
+import { WhatsAppEngine } from '@mlhkinfotech/wa-core';
+import { AIAgent } from '@mlhkinfotech/ai-agent';
 
 // 1. Initialize AI Agent
 const agent = new AIAgent({

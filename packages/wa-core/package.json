@@ -1,5 +1,5 @@
 {
-  "name": "@mlhk/wa-core",
+  "name": "@mlhkinfotech/wa-core",
   "version": "1.0.0",
   "description": "Core WhatsApp Engine for MLHK AI Ecosystem with multi-session & Baileys support",
   "type": "module",
@@ -22,7 +22,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mlhk/types": "workspace:*",
+    "@mlhkinfotech/types": "workspace:*",
     "@whiskeysockets/baileys": "^7.0.0-rc14",
     "pino": "^9.6.0",
     "qrcode": "^1.5.4",

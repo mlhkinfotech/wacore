@@ -1,4 +1,4 @@
-import type { MemoryEntry } from '@mlhk/types';
+import type { MemoryEntry } from '@mlhkinfotech/types';
 
 export class MemoryManager {
   private memoryMap: Map<string, MemoryEntry[]> = new Map();

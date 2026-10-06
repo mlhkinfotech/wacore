@@ -1,5 +1,5 @@
 {
-  "name": "@mlhk/wa-cli",
+  "name": "@mlhkinfotech/wa-cli",
   "version": "1.0.0",
   "description": "Command-line tool to bootstrap and manage MLHK WhatsApp AI Agent projects",
   "type": "module",
@@ -26,8 +26,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mlhk/types": "workspace:*",
-    "@mlhk/wa-server": "workspace:*",
+    "@mlhkinfotech/types": "workspace:*",
+    "@mlhkinfotech/wa-server": "workspace:*",
     "commander": "^13.1.0",
     "picocolors": "^1.1.1"
   },

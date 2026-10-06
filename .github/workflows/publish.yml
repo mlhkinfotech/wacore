@@ -59,9 +59,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          pnpm --filter @mlhk/types publish --access public --no-git-checks
-          pnpm --filter @mlhk/wa-core publish --access public --no-git-checks
-          pnpm --filter @mlhk/ai-agent publish --access public --no-git-checks
-          pnpm --filter @mlhk/plugin-catalog publish --access public --no-git-checks
-          pnpm --filter @mlhk/wa-server publish --access public --no-git-checks
-          pnpm --filter @mlhk/wa-cli publish --access public --no-git-checks
+          pnpm --filter @mlhkinfotech/types publish --access public --no-git-checks
+          pnpm --filter @mlhkinfotech/wa-core publish --access public --no-git-checks
+          pnpm --filter @mlhkinfotech/ai-agent publish --access public --no-git-checks
+          pnpm --filter @mlhkinfotech/plugin-catalog publish --access public --no-git-checks
+          pnpm --filter @mlhkinfotech/wa-server publish --access public --no-git-checks
+          pnpm --filter @mlhkinfotech/wa-cli publish --access public --no-git-checks

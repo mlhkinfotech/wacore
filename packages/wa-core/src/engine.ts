@@ -6,7 +6,7 @@ import type {
   MessageResult,
   Plugin,
   SessionState
-} from '@mlhk/types';
+} from '@mlhkinfotech/types';
 
 export class WhatsAppEngine extends EventEmitter {
   public readonly sessions: SessionManager;

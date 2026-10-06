@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import type { AIAgent } from '@mlhk/ai-agent';
+import type { AIAgent } from '@mlhkinfotech/ai-agent';
 
 export const createAgentRoutes = (agent: AIAgent): Router => {
   const router = Router();

@@ -1,5 +1,5 @@
 {
-  "name": "@mlhk/ai-agent",
+  "name": "@mlhkinfotech/ai-agent",
   "version": "1.0.0",
   "description": "Enterprise-ready AI Agent Engine with multi-provider LLM, memory & tool-calling",
   "type": "module",
@@ -22,7 +22,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mlhk/types": "workspace:*"
+    "@mlhkinfotech/types": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

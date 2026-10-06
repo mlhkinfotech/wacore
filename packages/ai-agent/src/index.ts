@@ -4,4 +4,4 @@ export { ToolRegistry } from './tools/registry.js';
 export * from './intents/detector.js';
 export { callGemini } from './providers/gemini.js';
 export { callOpenRouter } from './providers/openrouter.js';
-export * from '@mlhk/types';
+export * from '@mlhkinfotech/types';

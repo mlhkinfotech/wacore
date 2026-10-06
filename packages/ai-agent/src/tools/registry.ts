@@ -1,4 +1,4 @@
-import type { ToolDefinition, AgentContext } from '@mlhk/types';
+import type { ToolDefinition, AgentContext } from '@mlhkinfotech/types';
 
 export class ToolRegistry {
   private tools: Map<string, ToolDefinition> = new Map();

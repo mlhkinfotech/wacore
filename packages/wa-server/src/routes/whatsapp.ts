@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import type { WhatsAppEngine } from '@mlhk/wa-core';
+import type { WhatsAppEngine } from '@mlhkinfotech/wa-core';
 import type { NotificationQueue } from '../notifications/queue.js';
 
 export const createWhatsAppRoutes = (engine: WhatsAppEngine, queue: NotificationQueue): Router => {

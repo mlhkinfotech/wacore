@@ -1,4 +1,4 @@
-import type { MemoryEntry, MediaData } from '@mlhk/types';
+import type { MemoryEntry, MediaData } from '@mlhkinfotech/types';
 
 export interface GeminiCallParams {
   apiKey: string;

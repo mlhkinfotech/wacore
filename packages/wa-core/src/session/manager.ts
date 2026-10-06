@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 import { WhatsAppSession } from './session.js';
-import type { SessionOptions, SessionState } from '@mlhk/types';
+import type { SessionOptions, SessionState } from '@mlhkinfotech/types';
 
 export class SessionManager extends EventEmitter {
   private sessions: Map<string, WhatsAppSession> = new Map();

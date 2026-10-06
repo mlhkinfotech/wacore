@@ -1,5 +1,5 @@
 {
-  "name": "@mlhk/plugin-catalog",
+  "name": "@mlhkinfotech/plugin-catalog",
   "version": "1.0.0",
   "description": "Universal Business & Product Catalog Plugin for MLHK WhatsApp AI Ecosystem",
   "type": "module",
@@ -22,7 +22,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mlhk/types": "workspace:*"
+    "@mlhkinfotech/types": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

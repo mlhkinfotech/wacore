@@ -20,7 +20,7 @@ import type {
   MessageResult,
   MediaData,
   MessageContext
-} from '@mlhk/types';
+} from '@mlhkinfotech/types';
 import { toJID, isGroupJID } from '../utils/phone.js';
 
 interface InternalSessionOptions {

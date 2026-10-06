@@ -8,7 +8,7 @@ import type {
   AgentContext,
   AgentResponse,
   ToolDefinition
-} from '@mlhk/types';
+} from '@mlhkinfotech/types';
 
 export class AIAgent {
   private config: AgentConfig;

@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid';
-import type { WhatsAppEngine } from '@mlhk/wa-core';
+import type { WhatsAppEngine } from '@mlhkinfotech/wa-core';
 
 export interface NotificationItem {
   id: string;
