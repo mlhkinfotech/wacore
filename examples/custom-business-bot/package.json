@@ -1,0 +1,16 @@
+{
+  "name": "example-custom-business-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/index.js",
+    "dev": "node --watch --env-file=.env src/index.js"
+  },
+  "dependencies": {
+    "@mlhk/ai-agent": "workspace:*",
+    "@mlhk/plugin-catalog": "workspace:*",
+    "@mlhk/types": "workspace:*",
+    "@mlhk/wa-core": "workspace:*"
+  }
+}

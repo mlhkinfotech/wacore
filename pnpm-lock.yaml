@@ -212,6 +212,12 @@ importers:
         specifier: ^9.0.8
         version: 9.0.8
 
+  plugins/plugin-catalog:
+    dependencies:
+      '@mlhk/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+
 packages:
 
   '@borewit/text-codec@0.2.2':
