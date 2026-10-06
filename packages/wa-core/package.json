@@ -1,0 +1,39 @@
+{
+  "name": "@mlhk/wa-core",
+  "version": "1.0.0",
+  "description": "Core WhatsApp Engine for MLHK AI Ecosystem with multi-session & Baileys support",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@mlhk/types": "workspace:*",
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "pino": "^9.6.0",
+    "qrcode": "^1.5.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5",
+    "@types/uuid": "^9.0.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT"
+}

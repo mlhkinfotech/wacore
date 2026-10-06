@@ -1,0 +1,107 @@
+# 🚀 MLHK AI WhatsApp Ecosystem
+
+Enterprise-grade, modular, and multi-tenant WhatsApp AI Agent & Automation Platform built with TypeScript and Node.js.
+
+---
+
+## 📦 Packages in this Monorepo
+
+| Package | Status | Description |
+|---|---|---|
+| [`@mlhk/types`](./packages/types) | `v1.0.0` | Shared TypeScript interfaces & contracts |
+| [`@mlhk/wa-core`](./packages/wa-core) | `v1.0.0` | Core WhatsApp Engine with Baileys & Multi-Session support |
+| [`@mlhk/ai-agent`](./packages/ai-agent) | `v1.0.0` | AI Agent Brain with Gemini, OpenRouter, Memory & Tool-calling |
+| `@mlhk/plugin-pos` (Upcoming) | `v1.0.0` | Point of Sale & E-commerce inventory integration |
+| `@mlhk/wa-server` (Upcoming) | `v1.0.0` | Turnkey REST & WebSocket Server |
+
+---
+
+## ⚡ Quick Start
+
+### 1. Requirements
+- Node.js `>= 20`
+- pnpm `>= 9`
+
+### 2. Installation & Build
+```bash
+# Clone and install dependencies
+pnpm install
+
+# Build all packages
+pnpm run build
+```
+
+### 3. Run Demo Bot
+```bash
+cd examples/basic-bot
+
+# Set up your environment variables
+cp .env.example .env
+# Edit .env with your AI_API_KEY (e.g., Gemini or OpenRouter)
+
+# Start the bot
+pnpm start
+```
+Terminal par QR code print hoga, WhatsApp se scan karein aur aapka AI Bot active ho jayega!
+
+---
+
+## 🛠️ Usage Example
+
+```typescript
+import { WhatsAppEngine } from '@mlhk/wa-core';
+import { AIAgent } from '@mlhk/ai-agent';
+
+// 1. Configure the AI Agent
+const agent = new AIAgent({
+  provider: 'gemini',
+  apiKey: process.env.AI_API_KEY,
+  systemPrompt: 'You are a helpful customer support assistant.'
+});
+
+// 2. Initialize the WhatsApp Engine
+const bot = new WhatsAppEngine({
+  sessionId: 'client-1',
+  sessionPath: './sessions/client-1'
+});
+
+// 3. Handle messages
+bot.on('message', async (ctx) => {
+  const response = await agent.process({
+    contactId: ctx.from,
+    contactName: ctx.fromName,
+    message: ctx.body
+  });
+
+  if (response.reply) {
+    await ctx.reply(response.reply);
+  }
+});
+
+// 4. Start Engine
+await bot.start();
+```
+
+---
+
+## 🚢 Publishing to npm
+
+To publish the packages to the npm registry:
+
+```bash
+# 1. Login to your npm account
+npm login
+
+# 2. Build the latest changes
+pnpm run build
+
+# 3. Publish packages with public access
+pnpm --filter @mlhk/types publish --access public
+pnpm --filter @mlhk/wa-core publish --access public
+pnpm --filter @mlhk/ai-agent publish --access public
+```
+
+---
+
+## 📄 License
+MIT © MLHK
