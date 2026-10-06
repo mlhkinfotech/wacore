@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/wa-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Ready-to-deploy REST API and WebSocket Server for MLHK WhatsApp AI Ecosystem",
   "type": "module",
   "main": "./dist/index.cjs",

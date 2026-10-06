@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/ai-agent",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enterprise-ready AI Agent Engine with multi-provider LLM, memory & tool-calling",
   "type": "module",
   "main": "./dist/index.cjs",

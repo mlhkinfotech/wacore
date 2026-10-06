@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/plugin-catalog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal Business & Product Catalog Plugin for MLHK WhatsApp AI Ecosystem",
   "type": "module",
   "main": "./dist/index.cjs",

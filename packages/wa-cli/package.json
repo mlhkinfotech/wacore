@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/wa-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Command-line tool to bootstrap and manage MLHK WhatsApp AI Agent projects",
   "type": "module",
   "main": "./dist/index.cjs",

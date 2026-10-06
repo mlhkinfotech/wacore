@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/wa-admin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modern React Admin Dashboard UI for MLHK WhatsApp AI Ecosystem",
   "type": "module",
   "scripts": {
