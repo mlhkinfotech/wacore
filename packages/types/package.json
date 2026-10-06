@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/types",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Shared TypeScript definitions and contracts for MLHK AI WhatsApp Ecosystem",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -14,7 +14,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --clean",
@@ -24,5 +25,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlhkinfotech/wacore.git",
+    "directory": "packages/types"
+  },
+  "homepage": "https://github.com/mlhkinfotech/wacore#readme",
+  "bugs": {
+    "url": "https://github.com/mlhkinfotech/wacore/issues"
+  }
 }

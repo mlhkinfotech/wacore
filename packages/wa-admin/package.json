@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/wa-admin",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Modern React Admin Dashboard UI for MLHK WhatsApp AI Ecosystem",
   "type": "module",
   "scripts": {
@@ -25,5 +25,18 @@
   "publishConfig": {
     "access": "public"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlhkinfotech/wacore.git",
+    "directory": "packages/wa-admin"
+  },
+  "homepage": "https://github.com/mlhkinfotech/wacore#readme",
+  "bugs": {
+    "url": "https://github.com/mlhkinfotech/wacore/issues"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@mlhkinfotech/wa-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ready-to-deploy REST API and WebSocket Server for MLHK WhatsApp AI Ecosystem",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -17,7 +17,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --clean",
@@ -44,5 +45,14 @@
   "publishConfig": {
     "access": "public"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlhkinfotech/wacore.git",
+    "directory": "packages/wa-server"
+  },
+  "homepage": "https://github.com/mlhkinfotech/wacore#readme",
+  "bugs": {
+    "url": "https://github.com/mlhkinfotech/wacore/issues"
+  }
 }
